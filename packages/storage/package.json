@@ -1,6 +1,6 @@
 {
     "name": "@geeeger/storage",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "本地存储工具",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger/utils.git",
@@ -25,6 +25,6 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "@geeeger/is": "^1.0.0"
+        "@geeeger/is": "^1.0.1"
     }
 }

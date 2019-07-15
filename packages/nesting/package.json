@@ -1,6 +1,6 @@
 {
   "name": "@geeeger/nesting",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "防止嵌套数据结构有误的小工具",
   "keywords": [
     "nesting"

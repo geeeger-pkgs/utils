@@ -1,6 +1,6 @@
 {
   "name": "@geeeger/page-visibility",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "检查页面是否可见的工具 page visibility api",
   "keywords": [
     "page",

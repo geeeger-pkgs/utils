@@ -1,6 +1,6 @@
 {
     "name": "@geeeger/bridge",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "为与app交互制作的bridge封装",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger/utils.git",
