@@ -1,0 +1,30 @@
+{
+  "name": "@geeeger/nesting",
+  "version": "1.0.0",
+  "description": "防止嵌套数据结构有误的小工具",
+  "keywords": [
+    "nesting"
+  ],
+  "author": "geeeger <lph1988520@sina.com>",
+  "homepage": "https://github.com/geeeger/utils.git",
+  "license": "ISC",
+  "main": "lib/nesting.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geeeger/utils.git"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "prebuild": "npm run clean",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rimraf lib",
+    "typecheck": "tsc --noEmit"
+  }
+}

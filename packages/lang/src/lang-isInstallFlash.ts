@@ -1,0 +1,14 @@
+// 判断浏览器是否支持flash(老版本IE可能会报错)
+const isInstallFlash = () => {
+    try {
+        const win: any = window;
+        const nav: any = navigator;
+        if (typeof (win.ActiveXObject) !== 'undefined') {
+            return new win.ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+        }
+        return nav.plugins['Shockwave Flash'];
+    } catch (e) {
+        return false;
+    }
+};
+export default isInstallFlash;

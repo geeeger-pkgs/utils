@@ -1,0 +1,20 @@
+{
+    "files": [],
+    "references": [
+        { "path": "packages/bridge" },
+        { "path": "packages/context" },
+        { "path": "packages/cookie" },
+        { "path": "packages/face-converter" },
+        { "path": "packages/is" },
+        { "path": "packages/lang" },
+        { "path": "packages/lazyload" },
+        { "path": "packages/lock" },
+        { "path": "packages/log" },
+        { "path": "packages/lucky" },
+        { "path": "packages/multisort" },
+        { "path": "packages/nesting" },
+        { "path": "packages/observer" },
+        { "path": "packages/storage" },
+        { "path": "packages/structure" }
+    ]
+}

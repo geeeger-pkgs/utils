@@ -1,0 +1,27 @@
+{
+    "name": "@geeeger/multisort",
+    "version": "1.0.0",
+    "description": "多条件排序工具",
+    "author": "geeeger <lph1988520@sina.com>",
+    "homepage": "https://github.com/geeeger/utils.git",
+    "license": "ISC",
+    "main": "lib/multisort.js",
+    "files": [
+        "lib"
+    ],
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/geeeger/utils.git"
+    },
+    "scripts": {
+        "test": "jest --coverage",
+        "prebuild": "npm run clean",
+        "build": "tsc -p tsconfig.build.json",
+        "clean": "rimraf lib",
+        "typecheck": "tsc --noEmit"
+    }
+}
