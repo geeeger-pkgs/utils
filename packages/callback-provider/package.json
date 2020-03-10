@@ -1,0 +1,31 @@
+{
+  "name": "@geeeger/callback-provider",
+  "version": "1.0.0",
+  "description": "管理回调",
+  "keywords": [
+    "data"
+  ],
+  "author": "geeeger <lph1988520@sina.com>",
+  "homepage": "https://github.com/geeeger/utils.git",
+  "license": "ISC",
+  "main": "lib/callback-provider.js",
+  "types": "lib/callback-provider.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geeeger/utils.git"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "prebuild": "npm run clean",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rimraf lib",
+    "typecheck": "tsc --noEmit"
+  }
+}
