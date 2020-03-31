@@ -12,6 +12,7 @@ import {
     isSymbol,
     isUndefined,
     isJson,
+    isHttp,
 } from '../src/is';
 
 it('isArray', () => {
@@ -61,6 +62,11 @@ it('isSymbol', () => {
 it('isUndefined', () => {
     expect(isUndefined(undefined)).toBeTruthy();
 });
+
 it('isJson', () => {
     expect(isJson(JSON.stringify([]))).toBeTruthy();
+});
+
+it('isHttp', () => {
+    expect(isHttp('http://www.baidu.com')).toBeTruthy();
 });

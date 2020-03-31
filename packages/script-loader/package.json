@@ -1,12 +1,12 @@
 {
-    "name": "@geeeger/is",
-    "version": "1.0.2",
-    "description": "判断数据类型工具",
+    "name": "@geeeger/script-loader",
+    "version": "1.0.0",
+    "description": "加载第三方脚本",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger/utils.git",
     "license": "ISC",
-    "main": "lib/is.js",
-    "types": "lib/is.d.ts",
+    "main": "lib/loader.js",
+    "types": "lib/loader.d.ts",
     "files": [
         "lib"
     ],

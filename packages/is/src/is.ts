@@ -11,6 +11,7 @@ import isSymbol from './is-symbol';
 import isUndefined from './is-undefined';
 import isNull from './is-null';
 import isJson from './is-json';
+import isHttp from './is-http';
 
 export {
     isArray,
@@ -26,4 +27,5 @@ export {
     isUndefined,
     isNull,
     isJson,
+    isHttp,
 };

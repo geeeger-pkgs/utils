@@ -1,12 +1,12 @@
 {
-    "name": "@geeeger/is",
-    "version": "1.0.2",
-    "description": "判断数据类型工具",
+    "name": "@geeeger/random-id",
+    "version": "1.0.1",
+    "description": "生成id开头的randomid",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger/utils.git",
     "license": "ISC",
-    "main": "lib/is.js",
-    "types": "lib/is.d.ts",
+    "main": "lib/random-id.js",
+    "types": "lib/random-id.d.ts",
     "files": [
         "lib"
     ],

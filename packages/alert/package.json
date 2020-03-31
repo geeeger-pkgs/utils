@@ -1,14 +1,15 @@
 {
-    "name": "@geeeger/is",
-    "version": "1.0.2",
-    "description": "判断数据类型工具",
+    "name": "@geeeger/alert",
+    "version": "1.0.4",
+    "description": "alert模态框",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger/utils.git",
     "license": "ISC",
-    "main": "lib/is.js",
-    "types": "lib/is.d.ts",
+    "main": "lib/alert.js",
+    "types": "lib/alert.d.ts",
     "files": [
-        "lib"
+        "lib",
+        "styles"
     ],
     "publishConfig": {
         "access": "public",
@@ -24,5 +25,8 @@
         "build": "tsc -p tsconfig.build.json",
         "clean": "rimraf lib",
         "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@geeeger/random-id": "^1.0.0"
     }
 }

@@ -1,14 +1,15 @@
 {
-    "name": "@geeeger/is",
-    "version": "1.0.2",
-    "description": "判断数据类型工具",
+    "name": "@geeeger/confirm",
+    "version": "1.0.3",
+    "description": "confirm模态框",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger/utils.git",
     "license": "ISC",
-    "main": "lib/is.js",
-    "types": "lib/is.d.ts",
+    "main": "lib/confirm.js",
+    "types": "lib/confirm.d.ts",
     "files": [
-        "lib"
+        "lib",
+        "styles"
     ],
     "publishConfig": {
         "access": "public",
@@ -24,5 +25,8 @@
         "build": "tsc -p tsconfig.build.json",
         "clean": "rimraf lib",
         "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@geeeger/random-id": "^1.0.0"
     }
 }
