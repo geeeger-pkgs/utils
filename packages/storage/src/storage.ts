@@ -24,7 +24,7 @@ class QieStorage {
             newValue = JSON.stringify(setValue);
         }
 
-        window[key].setItem(key, newValue);
+        window[key].setItem(setKey, newValue);
 
         return {
             key: setKey,

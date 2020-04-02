@@ -1,11 +1,12 @@
 {
     "name": "@geeeger/storage",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "本地存储工具",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger/utils.git",
     "license": "ISC",
     "main": "lib/storage.js",
+    "types": "lib/storage.d.ts",
     "files": [
         "lib"
     ],
