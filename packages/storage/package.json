@@ -1,6 +1,6 @@
 {
     "name": "@geeeger/storage",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "本地存储工具",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger-pkgs/utils.git",
@@ -26,6 +26,6 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "@geeeger/is": "^1.0.1"
+        "@geeeger/is": "^1.1.0"
     }
 }

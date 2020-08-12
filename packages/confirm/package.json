@@ -1,6 +1,6 @@
 {
     "name": "@geeeger/confirm",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "confirm模态框",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger-pkgs/utils.git",
@@ -27,6 +27,6 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
-        "@geeeger/random-id": "^1.0.0"
+        "@geeeger/random-id": "^1.1.0"
     }
 }

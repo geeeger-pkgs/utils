@@ -1,6 +1,6 @@
 {
     "name": "@geeeger/script-loader",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "加载第三方脚本",
     "author": "geeeger <lph1988520@sina.com>",
     "homepage": "https://github.com/geeeger-pkgs/utils.git",
