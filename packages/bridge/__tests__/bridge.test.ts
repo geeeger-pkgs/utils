@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import {
     Bridge, BridgeType, DealType,
 } from '../src/index';

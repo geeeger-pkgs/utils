@@ -51,7 +51,7 @@ function once(): PromiseLike<{ishidden: boolean; timeout: number}> {
 
 document.addEventListener(visibilityChange, () => {
     const ishidden = isHidden();
-    listeners.forEach(listener => listener(ishidden));
+    listeners.forEach((listener) => listener(ishidden));
 }, false);
 
 export default {

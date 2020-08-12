@@ -4,9 +4,9 @@ const isInstallFlash = () => {
         const win: any = window;
         const nav: any = navigator;
         if (typeof (win.ActiveXObject) !== 'undefined') {
-            return new win.ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+            return Boolean(new win.ActiveXObject('ShockwaveFlash.ShockwaveFlash'));
         }
-        return nav.plugins['Shockwave Flash'];
+        return Boolean(nav.plugins['Shockwave Flash']);
     } catch (e) {
         return false;
     }

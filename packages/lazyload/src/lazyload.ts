@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 /**
  * see [api](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Creating_an_intersection_observer)
  */
@@ -68,7 +69,7 @@ class BaseLoad {
     set: any[];
 
     constructor(options: LazyLoadOptions) {
-        this.opts = Object.assign({}, defaultOptions, options);
+        this.opts = { ...defaultOptions, ...options };
         this.set = [];
     }
 

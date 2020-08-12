@@ -2,8 +2,11 @@ import Node from './node';
 
 export default class Queue {
     top: Node | null;
+
     size: any;
+
     bottom: Node | null;
+
     constructor() {
         this.top = null;
         this.bottom = null;
@@ -14,14 +17,11 @@ export default class Queue {
         this.top = new Node(element, null, this.top);
         if (this.size === 0) {
             this.bottom = this.top;
-        }
-        else {
+        } else if (this.top.right) {
             // for type check
-            if (this.top.right) {
-                this.top.right.left = this.top;
-            }
+            this.top.right.left = this.top;
         }
-        this.size++;
+        this.size += 1;
     }
 
     pop() {
@@ -29,12 +29,12 @@ export default class Queue {
         if (this.size === 0 || this.bottom === null) {
             return null;
         }
-        let element = this.bottom.getValue();
+        const element = this.bottom.getValue();
         this.bottom = this.bottom.left;
         if (this.bottom !== null) {
             this.bottom.right = null;
         }
-        this.size--;
+        this.size -= 1;
         return element;
     }
 
@@ -48,4 +48,4 @@ export default class Queue {
     isEmpty() {
         return this.size === 0;
     }
-};
+}

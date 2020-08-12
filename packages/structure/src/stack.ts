@@ -2,7 +2,9 @@ import LinkedList from './linkedlist';
 
 export default class Stack {
     stack: LinkedList;
+
     currentAmount: number;
+
     constructor() {
         this.stack = new LinkedList();
         this.currentAmount = 0;
@@ -10,12 +12,12 @@ export default class Stack {
 
     push(element: any) {
         this.stack.add(element);
-        this.currentAmount++;
+        this.currentAmount += 1;
     }
 
     pop() {
         if (this.currentAmount) {
-            this.currentAmount--;
+            this.currentAmount -= 1;
             return this.stack.removeFirst();
         }
         return null;
@@ -25,7 +27,7 @@ export default class Stack {
         if (this.isEmpty()) {
             return null;
         }
-        let element = this.pop();
+        const element = this.pop();
         this.push(element);
         return element;
     }
@@ -37,4 +39,4 @@ export default class Stack {
     isEmpty() {
         return this.currentAmount === 0;
     }
-};
+}

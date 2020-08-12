@@ -23,6 +23,7 @@
         "@typescript-eslint/no-parameter-properties": "off",
         "indent": ["error", 4],
         "import/no-unresolved": "off",
+        "import/extensions": "off",
         "space-before-function-paren": "off"
     },
     "parserOptions": {

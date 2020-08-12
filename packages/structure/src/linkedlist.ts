@@ -2,10 +2,12 @@ import Node from './node';
 
 export default class LinkedList {
     root: Node | null;
+
     length: number;
+
     constructor(root: Node | null = null) {
         this.root = root;
-        this.length = !!root ? 1 : 0;
+        this.length = root ? 1 : 0;
     }
 
     [Symbol.iterator]() {
@@ -17,39 +19,38 @@ export default class LinkedList {
                     current = current.left;
                     return {
                         value,
-                        done: false
+                        done: false,
                     };
                 }
                 return {
-                    done: true
-                }
-            }
-        }
+                    done: true,
+                };
+            },
+        };
     }
 
     add(element: any) {
         if (this.root === null) {
             this.root = new Node(element, null);
-        }
-        else {
+        } else {
             this.root = new Node(element, this.root);
         }
-        this.length++;
+        this.length += 1;
     }
 
     removeFirst() {
         if (this.root === null) {
             return null;
         }
-        var element = this.root.getValue();
+        const element = this.root.getValue();
         this.root = this.root.left;
-        this.length--;
+        this.length -= 1;
         return element;
     }
 
     search(element: any) {
         let current = this.root;
-        while(current !== null) {
+        while (current !== null) {
             if (current.getValue() === element) {
                 return true;
             }
@@ -58,22 +59,22 @@ export default class LinkedList {
         return false;
     }
 
-    removeIf(callback: { (item: any): boolean; (arg0: any): void; (arg0: any): void; }) {
+    removeIf(callback: { (item: any): boolean; (arg0: any): void; (arg0: any): void }) {
         if (this.root === null) {
             return false;
         }
         if (callback(this.root.getValue())) {
             this.root = this.root.left;
-            this.length--;
+            this.length -= 1;
             return true;
         }
         let current = this.root.left;
         let previous = this.root;
 
-        while(current !== null) {
+        while (current !== null) {
             if (callback(current.getValue())) {
                 previous.left = current.left;
-                this.length--;
+                this.length -= 1;
                 return true;
             }
             previous = current;
@@ -83,13 +84,11 @@ export default class LinkedList {
     }
 
     remove(element: any) {
-        return this.removeIf((item: any) => {
-            return item === element;
-        })
+        return this.removeIf((item: any) => item === element);
     }
 
     stream() {
-        let stream: any[] = [];
+        const stream: any[] = [];
         if (this.root === null) {
             return stream;
         }
@@ -112,4 +111,4 @@ export default class LinkedList {
     isEmpty() {
         return this.length === 0;
     }
-};
+}

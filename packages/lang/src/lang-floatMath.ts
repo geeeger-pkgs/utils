@@ -54,7 +54,7 @@ const floatMath = {
         } catch (e) {
             /** */
         }
-        return (Number(s1.replace('.', '')) / Number(s2.replace('.', '')) * (10 ** (t2 - t1)));
+        return ((Number(s1.replace('.', '')) / Number(s2.replace('.', ''))) * (10 ** (t2 - t1)));
     },
     // 乘法计算
     accMul: (arg1: any, arg2: any) => {
@@ -71,7 +71,7 @@ const floatMath = {
         } catch (e) {
             /** */
         }
-        return (Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / (10 ** m));
+        return ((Number(s1.replace('.', '')) * Number(s2.replace('.', ''))) / (10 ** m));
     },
 };
 export default floatMath;

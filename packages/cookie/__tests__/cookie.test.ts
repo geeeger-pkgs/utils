@@ -1,4 +1,5 @@
-const cookie = require('../src/cookie.ts');
+// const cookie = require('../src/cookie.ts');
+import cookie from '../src/cookie';
 
 test('cookie getCookie', () => {
     expect(cookie.setCookie('test', '123')).toEqual({

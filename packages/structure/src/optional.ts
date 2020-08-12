@@ -1,11 +1,14 @@
+/* eslint-disable new-cap */
+/* eslint-disable max-classes-per-file */
 class OptionalConstructor {
     value: any;
+
     constructor(value: any) {
         this.value = value;
     }
 
     map(fn: (value: any) => any) {
-        let value = this.value;
+        let { value } = this;
         if (value === undefined) {
             value = '';
         }
@@ -22,6 +25,7 @@ class OptionalConstructor {
 
 export default class Optional {
     static init = OptionalConstructor
+
     static of(value: any) {
         if (value === undefined) {
             throw new TypeError('NullPointerException: of(value)');
@@ -32,4 +36,4 @@ export default class Optional {
     static ofNullable(value: any) {
         return new Optional.init(value);
     }
-};
+}

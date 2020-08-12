@@ -1,4 +1,3 @@
-
 export interface Config {
     send: boolean;
     transfer: boolean;
@@ -67,7 +66,7 @@ export class Log {
         this.warnCache = [];
         this.infoCache = [];
         this.debugCache = [];
-        this.config = Object.assign({}, baseConfig, config, userConfig);
+        this.config = { ...baseConfig, ...config, ...userConfig };
         (this.config as LogConfigType).id = id;
     }
 

@@ -10,7 +10,7 @@ interface DelObject {
 
 export default class Cookie {
     public static getCookie(key: string): string {
-        const reg: RegExp = new RegExp(`(^| )${key}=([^;]*)(;|$)`);
+        const reg = new RegExp(`(^| )${key}=([^;]*)(;|$)`);
 
         const result: any = document.cookie.match(reg);
 

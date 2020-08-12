@@ -1,9 +1,15 @@
+/* eslint-disable no-bitwise */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable max-classes-per-file */
 import LinkedList from './linkedlist';
 
 class Entry {
     key: any;
+
     value: any;
+
     hashcode: any;
+
     constructor(key: any, value: any, hashcode: number) {
         this.key = key;
         this.value = value;
@@ -34,25 +40,31 @@ class Entry {
 const OVERFLOW = 0x7fffffff;
 
 function hashCode(key: any) {
-    let keyStr = key.toString();
+    const keyStr = key.toString();
     let hash = 0;
     let offset = 0;
-    let len = keyStr.length;
-    for (let i = 0; i < len; i++) {
-        hash = 31 * hash + keyStr.charCodeAt(offset++);
+    const len = keyStr.length;
+    for (let i = 0; i < len; i += 1) {
+        hash = 31 * hash + keyStr.charCodeAt(offset);
+        offset += 1;
         if (hash >= OVERFLOW) {
             hash %= (OVERFLOW + 1);
         }
     }
-    return hash
+    return hash;
 }
 
 export default class HashMap {
     private _capacity: number;
+
     private _tableSize: number;
+
     private _size: number;
+
     private _resizeRatio: number;
+
     private _table: any[];
+
     constructor() {
         this._capacity = 32;
         this._tableSize = 0;
@@ -80,19 +92,19 @@ export default class HashMap {
 
         this.remove(key);
 
-        let entry = new Entry(key, value, this._hashFunction(key));
+        const entry = new Entry(key, value, this._hashFunction(key));
 
         if (!this._table[entry.getHashCode()]) {
             this._table[entry.getHashCode()] = new LinkedList();
-            this._tableSize++;
+            this._tableSize += 1;
         }
         this._table[entry.getHashCode()].add(entry);
-        this._size++;
+        this._size += 1;
     }
 
     private _resize() {
         this._capacity = this._capacity * 2;
-        let arr = new Array(this._capacity);
+        const arr = new Array(this._capacity);
         this._tableSize = 0;
         this._table
             .filter((item) => item !== undefined)
@@ -102,20 +114,20 @@ export default class HashMap {
                         e.setHashCode(this._hashFunction(e.getKey()));
                         if (!arr[e.getHashCode()]) {
                             arr[e.getHashCode()] = new LinkedList();
-                            this._tableSize++;
+                            this._tableSize += 1;
                         }
                         arr[e.getHashCode()].add(e);
-                    })
+                    });
             });
         this._table = arr;
     }
 
     contains(key: any) {
-        let hashCode = this._hashFunction(key);
-        if (hashCode >= this._table.length || this._size <= 0) {
+        const hashcode = this._hashFunction(key);
+        if (hashcode >= this._table.length || this._size <= 0) {
             return false;
         }
-        let list: LinkedList = this._table[hashCode];
+        const list: LinkedList = this._table[hashcode];
         if (!list) {
             return false;
         }
@@ -123,28 +135,29 @@ export default class HashMap {
     }
 
     remove(key: any) {
-        let hashCode = this._hashFunction(key);
-        if (hashCode >= this._table.length || this._size <= 0) {
+        const hashcode = this._hashFunction(key);
+        if (hashcode >= this._table.length || this._size <= 0) {
             return false;
         }
-        let list: LinkedList = this._table[hashCode];
+        const list: LinkedList = this._table[hashcode];
         if (!list) {
             return false;
         }
         list.removeIf((item: Entry) => item.getKey() === key);
         if (list.isEmpty()) {
-            this._tableSize--;
-            this._table[hashCode] = undefined;
+            this._tableSize -= 1;
+            this._table[hashcode] = undefined;
         }
-        this._size--;
+        this._size -= 1;
+        return undefined;
     }
 
     get(key: any) {
-        let hashCode = this._hashFunction(key);
-        if (hashCode >= this._table.length || this._size <= 0) {
+        const hashcode = this._hashFunction(key);
+        if (hashcode >= this._table.length || this._size <= 0) {
             return null;
         }
-        let list: LinkedList = this._table[hashCode];
+        const list: LinkedList = this._table[hashcode];
         if (!list) {
             return null;
         }
@@ -152,4 +165,4 @@ export default class HashMap {
             .filter((item) => item.getKey() === key)
             .map((item) => item.getValue())[0] || null;
     }
-};
+}

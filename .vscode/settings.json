@@ -12,6 +12,7 @@
             "autoFix": true
         }
     ],
+    "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "typescript.tsdk": "node_modules/typescript/lib",
     "javascript.preferences.importModuleSpecifier": "auto",
@@ -20,9 +21,9 @@
     "typescript.preferences.quoteStyle": "single",
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
-    "editor.autoIndent": true,
-    "editor.autoClosingBrackets": true,
-    "editor.autoClosingQuotes": true,
+    "editor.autoIndent": "full",
+    "editor.autoClosingBrackets": "languageDefined",
+    "editor.autoClosingQuotes": "always",
     "editor.codeLens": true,
     "editor.rulers": [
         80,

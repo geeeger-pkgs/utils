@@ -6,6 +6,5 @@
             "verifyAccess": false,
             "message": "chore(release): publish"
         }
-    },
-    "version": "independent"
+    }
 }

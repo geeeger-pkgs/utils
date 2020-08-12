@@ -22,12 +22,13 @@ const cache: {
 } = {};
 
 export default function scriptLoader(opts: ScriptLoaderOpts): void {
-    const option = Object.assign({
+    const option = {
         callback: () => {},
         error: () => {},
         async: true,
         cache: true,
-    }, opts);
+        ...opts,
+    };
     const doc = document;
     const scriptCache = cache[option.src];
     if (option.cache && scriptCache) {

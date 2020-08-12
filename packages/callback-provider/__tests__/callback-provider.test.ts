@@ -1,7 +1,7 @@
 import CallbackProvider from '../src/callback-provider';
 
 describe('test', () => {
-    test('should pass', () => {
+    test('should pass', async () => {
         const c = new CallbackProvider();
         function d() {
             return new Promise((res) => {
@@ -11,8 +11,9 @@ describe('test', () => {
                 c.listen('x');
             });
         }
-
-        expect(d()).resolves.toEqual(1);
-        c.run('x', 1);
+        setTimeout(() => {
+            c.run('x', 1);
+        }, 20);
+        await expect(d()).resolves.toEqual(1);
     });
 });

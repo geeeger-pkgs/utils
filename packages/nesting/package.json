@@ -6,7 +6,7 @@
     "nesting"
   ],
   "author": "geeeger <lph1988520@sina.com>",
-  "homepage": "https://github.com/geeeger/utils.git",
+  "homepage": "https://github.com/geeeger-pkgs/utils.git",
   "license": "ISC",
   "main": "lib/nesting.js",
   "files": [
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/geeeger/utils.git"
+    "url": "https://github.com/geeeger-pkgs/utils.git"
   },
   "scripts": {
     "test": "jest --coverage",
