@@ -16,7 +16,7 @@
         "check-format": "prettier --write \"./**/*.{ts,js,json,md}\""
     },
     "devDependencies": {
-        "@commitlint/cli": "^9.1.1",
+        "@commitlint/cli": "^11.0.0",
         "@commitlint/config-conventional": "^11.0.0",
         "@types/jest": "^26.0.5",
         "@types/node": "^14.0.23",
