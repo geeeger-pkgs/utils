@@ -1,0 +1,116 @@
+{
+  "folders": [
+	{
+		"name": "✨ root",
+		"path": "."
+	},
+	{
+		"name": "📦 @geeeger/alert",
+		"path": "packages\\alert"
+	},
+	{
+		"name": "📦 @geeeger/body-lock",
+		"path": "packages\\body-lock"
+	},
+	{
+		"name": "📦 @geeeger/bridge",
+		"path": "packages\\bridge"
+	},
+	{
+		"name": "📦 @geeeger/callback-provider",
+		"path": "packages\\callback-provider"
+	},
+	{
+		"name": "📦 @geeeger/confirm",
+		"path": "packages\\confirm"
+	},
+	{
+		"name": "📦 @geeeger/context",
+		"path": "packages\\context"
+	},
+	{
+		"name": "📦 @geeeger/cookie",
+		"path": "packages\\cookie"
+	},
+	{
+		"name": "📦 @geeeger/data",
+		"path": "packages\\data"
+	},
+	{
+		"name": "📦 @geeeger/face-coverter",
+		"path": "packages\\face-coverter"
+	},
+	{
+		"name": "📦 @geeeger/is",
+		"path": "packages\\is"
+	},
+	{
+		"name": "📦 @geeeger/is-http-url",
+		"path": "packages\\is-http-url"
+	},
+	{
+		"name": "📦 @geeeger/lang",
+		"path": "packages\\lang"
+	},
+	{
+		"name": "📦 @geeeger/lazyload",
+		"path": "packages\\lazyload"
+	},
+	{
+		"name": "📦 @geeeger/lock",
+		"path": "packages\\lock"
+	},
+	{
+		"name": "📦 @geeeger/log",
+		"path": "packages\\log"
+	},
+	{
+		"name": "📦 @geeeger/lucky",
+		"path": "packages\\lucky"
+	},
+	{
+		"name": "📦 @geeeger/multisort",
+		"path": "packages\\multisort"
+	},
+	{
+		"name": "📦 @geeeger/nesting",
+		"path": "packages\\nesting"
+	},
+	{
+		"name": "📦 @geeeger/observer",
+		"path": "packages\\observer"
+	},
+	{
+		"name": "📦 @geeeger/os",
+		"path": "packages\\os"
+	},
+	{
+		"name": "📦 @geeeger/page-visibility",
+		"path": "packages\\page-visibility"
+	},
+	{
+		"name": "📦 @geeeger/random-id",
+		"path": "packages\\random-id"
+	},
+	{
+		"name": "📦 @geeeger/safe-link",
+		"path": "packages\\safe-link"
+	},
+	{
+		"name": "📦 @geeeger/script-loader",
+		"path": "packages\\script-loader"
+	},
+	{
+		"name": "📦 @geeeger/storage",
+		"path": "packages\\storage"
+	},
+	{
+		"name": "📦 @geeeger/structure",
+		"path": "packages\\structure"
+	}
+],
+  "settings": {
+    "json.format.enable": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+  }
+}

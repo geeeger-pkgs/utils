@@ -1,0 +1,40 @@
+.geeeger-confirm {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 100;
+    .box {
+        background: #fff;
+        border-radius: 6px;
+        width: 200px;
+        overflow: hidden;
+        font-size: 14px;
+        text-align: center;
+        div {
+            padding: 8px;
+        }
+        .info {
+            font-weight: 600;
+        }
+        .foot {
+            border-top: 1px solid #efefef;
+            display: flex;
+            padding: 0;
+        }
+        .ok {
+            flex: auto;
+            color: seagreen;
+            border-right: 1px solid #efefef;
+        }
+        .cancel {
+            flex: auto;
+            color: gray;
+        }
+    }
+}

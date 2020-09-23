@@ -1,0 +1,36 @@
+{
+  "author": "geeeger <lph1988520@sina.com>",
+  "description": "判断环境类型函数",
+  "homepage": "https://github.com/geeeger-pkgs/utils.git",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "fn-utils"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geeeger-pkgs/utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/geeeger-pkgs/utils/issues",
+    "email": "lph1988520@sina.com"
+  },
+  "private": false,
+  "name": "@geeeger/os",
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  },
+  "scripts": {
+    "build": "tsc --pretty",
+    "prepare": "npm run build"
+  },
+  "version": "0.0.0"
+}

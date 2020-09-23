@@ -1,0 +1,10 @@
+export { default as isAndroid } from './isAndroid';
+export { default as isIOS } from './isIOS';
+export { default as isOriginalChrome } from './isOriginalChrome';
+export { default as isQQ } from './isQQ';
+export { default as isQQNews } from './isQQNews';
+export { default as isQzone } from './isQzone';
+export { default as isSafari } from './isSafari';
+export { default as isWeibo } from './isWeibo';
+export { default as isWX } from './isWX';
+export { default as isWXMP } from './isWXMP';
