@@ -32,8 +32,8 @@
     "build": "tsc --pretty",
     "prepare": "npm run build"
   },
-  "version": "0.0.0",
+  "version": "2.0.0",
   "dependencies": {
-    "@geeeger/random-id": "^0.0.0"
+    "@geeeger/random-id": "^2.0.0"
   }
 }
