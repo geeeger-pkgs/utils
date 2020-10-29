@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-underscore-dangle */
 import Node from './node';
 import Optional from './optional';
 
-export default class BinaryTree {
-  root: any;
+export default class BinaryTree<T = any> {
+  root: Node<T> | null;
 
-  constructor(root: any = null) {
+  constructor(root: Node<T> | null = null) {
     this.root = root;
   }
 
-  add(element: any) {
+  add(element: T): void {
     if (element === undefined) {
       return;
     }
@@ -21,7 +22,53 @@ export default class BinaryTree {
     }
   }
 
-  private _add(element: any, root: any) {
+  contains(element: T): boolean {
+    if (element === undefined || this.root === null) {
+      return false;
+    }
+    return this._contains(element, this.root);
+  }
+
+  printTree(level: any[]): void {
+    if (level.length) {
+      const newLevel = [];
+      for (let i = 0, len = level.length; i < len; i += 1) {
+        const node = level[i];
+        if (node.left) {
+          newLevel.push(node.left);
+        }
+        if (node.right) {
+          newLevel.push(node.right);
+        }
+      }
+      console.log('\n');
+      this.printTree(newLevel);
+    }
+  }
+
+  modify(oldElement?: T, newElement?: T): void {
+    if (oldElement === undefined || oldElement === newElement) {
+      return;
+    }
+    if (newElement === undefined) {
+      this.remove(oldElement);
+    } else if (this.contains(oldElement)) {
+      this.remove(oldElement);
+      this.add(newElement);
+    }
+  }
+
+  toString(): string {
+    return Optional.ofNullable(this.root)
+      .map((root) => root.toString())
+      .orElse(' ');
+  }
+
+  remove(element: T): void {
+    this.root = this._remove(element, this.root);
+  }
+
+  private _add(element: T, root: Node<T>): void {
     if (root.getValue() === element) {
       // nothing to do
     } else if (root.getValue() > element) {
@@ -37,14 +84,7 @@ export default class BinaryTree {
     }
   }
 
-  contains(element: any) {
-    if (element === undefined || this.root === null) {
-      return false;
-    }
-    return this._contains(element, this.root);
-  }
-
-  private _contains(element: any, root: any): boolean {
+  private _contains(element: T, root: Node<T> | null): boolean {
     if (root === null) {
       return false;
     }
@@ -57,11 +97,7 @@ export default class BinaryTree {
     return this._contains(element, root.right);
   }
 
-  remove(element: any) {
-    this.root = this._remove(element, this.root);
-  }
-
-  _remove(element: any, root: any): Node | any {
+  private _remove(element: T, root: Node<T> | null): Node<T> | null {
     if (root === null) {
       return null;
     }
@@ -78,45 +114,10 @@ export default class BinaryTree {
     return root;
   }
 
-  _findMax(root: any): any {
+  private _findMax(root: Node<T>): T {
     if (root.right !== null) {
       return this._findMax(root.right);
     }
     return root.getValue();
-  }
-
-  modify(oldElement: any, newElement: any) {
-    if (oldElement === undefined || oldElement === newElement) {
-      return;
-    }
-    if (newElement === undefined) {
-      this.remove(oldElement);
-    } else if (this.contains(oldElement)) {
-      this.remove(oldElement);
-      this.add(newElement);
-    }
-  }
-
-  toString() {
-    return Optional.ofNullable(this.root)
-      .map((root) => root.toString())
-      .orElse(' ');
-  }
-
-  printTree(level: any[]) {
-    if (level.length) {
-      const newLevel = [];
-      for (let i = 0, len = level.length; i < len; i += 1) {
-        const node = level[i];
-        if (node.left) {
-          newLevel.push(node.left);
-        }
-        if (node.right) {
-          newLevel.push(node.right);
-        }
-      }
-      console.log('\n');
-      this.printTree(newLevel);
-    }
   }
 }

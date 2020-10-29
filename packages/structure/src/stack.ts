@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import LinkedList from './linkedlist';
 
-export default class Stack {
-  stack: LinkedList;
+export default class Stack<T = any> {
+  stack: LinkedList<T>;
 
   currentAmount: number;
 
@@ -10,12 +11,12 @@ export default class Stack {
     this.currentAmount = 0;
   }
 
-  push(element: any) {
+  push(element: T): void {
     this.stack.add(element);
     this.currentAmount += 1;
   }
 
-  pop() {
+  pop(): T | null {
     if (this.currentAmount) {
       this.currentAmount -= 1;
       return this.stack.removeFirst();
@@ -23,20 +24,20 @@ export default class Stack {
     return null;
   }
 
-  peek() {
+  peek(): T | null {
     if (this.isEmpty()) {
       return null;
     }
     const element = this.pop();
-    this.push(element);
+    this.push(element as T);
     return element;
   }
 
-  size() {
+  size(): number {
     return this.currentAmount;
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.currentAmount === 0;
   }
 }

@@ -69,8 +69,7 @@ class BaseLoad {
   }
 
   /* eslint-disable */
-  start(): void {
-  }
+  start(): void {}
   /* eslint-enable */
 
   stop(): void {

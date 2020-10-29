@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-bitwise */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-classes-per-file */
 import LinkedList from './linkedlist';
 
-class Entry {
+class Entry<T = any> {
   key: any;
 
-  value: any;
+  value: T;
 
   hashcode: any;
 
@@ -16,30 +17,30 @@ class Entry {
     this.hashcode = hashcode;
   }
 
-  getKey() {
+  getKey(): any {
     return this.key;
   }
 
-  getValue() {
+  getValue(): any {
     return this.value;
   }
 
-  getHashCode() {
+  getHashCode(): number {
     return this.hashcode;
   }
 
-  setHashCode(hashcode: number) {
+  setHashCode(hashcode: number): void {
     this.hashcode = hashcode;
   }
 
-  toString() {
+  toString(): string {
     return `${this.key}=${this.value}`;
   }
 }
 
 const OVERFLOW = 0x7fffffff;
 
-function hashCode(key: any) {
+function hashCode(key: any): number {
   const keyStr = key.toString();
   let hash = 0;
   let offset = 0;
@@ -54,7 +55,7 @@ function hashCode(key: any) {
   return hash;
 }
 
-export default class HashMap {
+export default class HashMap<T = any> {
   private _capacity: number;
 
   private _tableSize: number;
@@ -63,7 +64,7 @@ export default class HashMap {
 
   private _resizeRatio: number;
 
-  private _table: any[];
+  private _table: Array<LinkedList<Entry<T>> | undefined>;
 
   constructor() {
     this._capacity = 32;
@@ -73,72 +74,49 @@ export default class HashMap {
     this._table = new Array(this._capacity);
   }
 
-  get size() {
+  get size(): number {
     return this._size;
   }
 
-  get tableSize() {
+  get tableSize(): number {
     return this._tableSize;
   }
 
-  private _hashFunction(key: any) {
-    return hashCode(key) & (this._capacity - 1);
-  }
-
-  put(key: any, value: any) {
+  put(key: any, value: T): void {
     if (this._tableSize / this._capacity > this._resizeRatio) {
       this._resize();
     }
 
     this.remove(key);
 
-    const entry = new Entry(key, value, this._hashFunction(key));
+    const entry = new Entry<T>(key, value, this._hashFunction(key));
 
     if (!this._table[entry.getHashCode()]) {
       this._table[entry.getHashCode()] = new LinkedList();
       this._tableSize += 1;
     }
-    this._table[entry.getHashCode()].add(entry);
+    (this._table[entry.getHashCode()] as LinkedList<Entry<T>>).add(entry);
     this._size += 1;
   }
 
-  private _resize() {
-    this._capacity = this._capacity * 2;
-    const arr = new Array(this._capacity);
-    this._tableSize = 0;
-    this._table
-      .filter((item) => item !== undefined)
-      .forEach((item: LinkedList) => {
-        Array.from(item).forEach((e: Entry) => {
-          e.setHashCode(this._hashFunction(e.getKey()));
-          if (!arr[e.getHashCode()]) {
-            arr[e.getHashCode()] = new LinkedList();
-            this._tableSize += 1;
-          }
-          arr[e.getHashCode()].add(e);
-        });
-      });
-    this._table = arr;
-  }
-
-  contains(key: any) {
+  contains(key: any): boolean {
     const hashcode = this._hashFunction(key);
     if (hashcode >= this._table.length || this._size <= 0) {
       return false;
     }
-    const list: LinkedList = this._table[hashcode];
+    const list = this._table[hashcode];
     if (!list) {
       return false;
     }
     return Array.from(list).filter((item: Entry) => item.getKey() === key).length > 0;
   }
 
-  remove(key: any) {
+  remove(key: any): any {
     const hashcode = this._hashFunction(key);
     if (hashcode >= this._table.length || this._size <= 0) {
       return false;
     }
-    const list: LinkedList = this._table[hashcode];
+    const list = this._table[hashcode];
     if (!list) {
       return false;
     }
@@ -151,12 +129,12 @@ export default class HashMap {
     return undefined;
   }
 
-  get(key: any) {
+  get(key: any): any {
     const hashcode = this._hashFunction(key);
     if (hashcode >= this._table.length || this._size <= 0) {
       return null;
     }
-    const list: LinkedList = this._table[hashcode];
+    const list = this._table[hashcode];
     if (!list) {
       return null;
     }
@@ -165,5 +143,28 @@ export default class HashMap {
         .filter((item) => item.getKey() === key)
         .map((item) => item.getValue())[0] || null
     );
+  }
+
+  private _hashFunction(key: any): any {
+    return hashCode(key) & (this._capacity - 1);
+  }
+
+  private _resize(): void {
+    this._capacity = this._capacity * 2;
+    const arr = new Array(this._capacity);
+    this._tableSize = 0;
+    this._table
+      .filter((item) => item !== undefined)
+      .forEach((item) => {
+        Array.from(item as LinkedList<Entry<T>>).forEach((e: Entry) => {
+          e.setHashCode(this._hashFunction(e.getKey()));
+          if (!arr[e.getHashCode()]) {
+            arr[e.getHashCode()] = new LinkedList();
+            this._tableSize += 1;
+          }
+          arr[e.getHashCode()].add(e);
+        });
+      });
+    this._table = arr;
   }
 }

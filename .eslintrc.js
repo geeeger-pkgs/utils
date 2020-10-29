@@ -1,23 +1,18 @@
 'use strict';
 
 module.exports = {
+  env: {
+    browser: true,
+    node: true,
+  },
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier', 'prettier/@typescript-eslint'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
-  ],
-  plugins: [
-    '@typescript-eslint',
-    'prettier',
-  ],
+  plugins: ['@typescript-eslint', 'prettier'],
   rules: {
-    'prettier/prettier': 1,
-    'sort-keys': 2,
     '@typescript-eslint/indent': 0,
     '@typescript-eslint/member-ordering': [
       2,
@@ -43,9 +38,7 @@ module.exports = {
     ],
     '@typescript-eslint/no-parameter-properties': 0,
     '@typescript-eslint/no-unused-vars': 0,
-  },
-  env: {
-    browser: true,
-    node: true,
+    'prettier/prettier': 1,
+    'sort-keys': 2,
   },
 };

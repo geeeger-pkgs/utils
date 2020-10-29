@@ -1,14 +1,15 @@
 import { Queue, HashMap, LinkedList, BinaryTree, Stack } from '../src';
+import Node from '../src/node';
 
 describe('@geeeger/structure module', () => {
   test('stack', () => {
-    const stack = new Stack();
+    const stack = new Stack<number>();
     stack.push(1);
     expect(stack.pop()).toBe(1);
   });
 
   test('queue', () => {
-    const queue = new Queue();
+    const queue = new Queue<number>();
     queue.push(1);
     expect(queue.peek()).toBe(1);
     expect(queue.size).toBe(1);
@@ -17,7 +18,7 @@ describe('@geeeger/structure module', () => {
   });
 
   test('hashmap', () => {
-    const map = new HashMap();
+    const map = new HashMap<string>();
     map.put('a', 'b');
     expect(map.get('a')).toBe('b');
     expect(map.contains('a')).toBeTruthy();
@@ -28,7 +29,7 @@ describe('@geeeger/structure module', () => {
   });
 
   test('linkedlist', () => {
-    const list = new LinkedList();
+    const list = new LinkedList<number>();
     list.add(1);
     list.add(2);
     expect(list).toHaveLength(2);
@@ -41,13 +42,14 @@ describe('@geeeger/structure module', () => {
   });
 
   test('BinaryTree', () => {
-    const bt = new BinaryTree();
+    const bt = new BinaryTree<number>();
     bt.add(1);
     bt.add(2);
-    expect(bt.root.getValue()).toBe(1);
-    expect(bt.root.left).toBeNull();
-    expect(bt.root.right.getValue()).toBe(2);
-    expect(bt.root.right).toEqual({
+    const root = bt.root as Node<number>;
+    expect(root.getValue()).toBe(1);
+    expect(root.left).toBeNull();
+    expect((root.right as Node<number>).getValue()).toBe(2);
+    expect(root.right).toEqual({
       element: 2,
       left: null,
       right: null,

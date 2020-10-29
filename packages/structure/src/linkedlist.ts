@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Node from './node';
 
-export default class LinkedList {
+export default class LinkedList<T = any> {
   root: Node | null;
 
   length: number;
@@ -10,26 +11,27 @@ export default class LinkedList {
     this.length = root ? 1 : 0;
   }
 
-  [Symbol.iterator]() {
+  [Symbol.iterator](): Iterator<T> {
     let current = this.root;
     return {
-      next() {
+      next(): IteratorResult<T> {
         if (current) {
           const value = current.getValue();
           current = current.left;
           return {
-            value,
             done: false,
+            value,
           };
         }
         return {
           done: true,
+          value: undefined,
         };
       },
     };
   }
 
-  add(element: any) {
+  add(element: T): void {
     if (this.root === null) {
       this.root = new Node(element, null);
     } else {
@@ -38,7 +40,19 @@ export default class LinkedList {
     this.length += 1;
   }
 
-  removeFirst() {
+  edit(target: T, updateTo: T): boolean {
+    if (this.remove(target)) {
+      this.add(updateTo);
+      return true;
+    }
+    return false;
+  }
+
+  isEmpty(): boolean {
+    return this.length === 0;
+  }
+
+  removeFirst(): T | null {
     if (this.root === null) {
       return null;
     }
@@ -48,18 +62,7 @@ export default class LinkedList {
     return element;
   }
 
-  search(element: any) {
-    let current = this.root;
-    while (current !== null) {
-      if (current.getValue() === element) {
-        return true;
-      }
-      current = current.left;
-    }
-    return false;
-  }
-
-  removeIf(callback: { (item: any): boolean; (arg0: any): void; (arg0: any): void }) {
+  removeIf(callback: { (item: T): boolean }): boolean {
     if (this.root === null) {
       return false;
     }
@@ -83,32 +86,31 @@ export default class LinkedList {
     return false;
   }
 
-  remove(element: any) {
-    return this.removeIf((item: any) => item === element);
+  remove(element: T): boolean {
+    return this.removeIf((item) => item === element);
   }
 
-  stream() {
-    const stream: any[] = [];
+  search(element: T): boolean {
+    let current = this.root;
+    while (current !== null) {
+      if (current.getValue() === element) {
+        return true;
+      }
+      current = current.left;
+    }
+    return false;
+  }
+
+  stream(): T[] {
+    const stream: T[] = [];
     if (this.root === null) {
       return stream;
     }
-    let current: Node | any = this.root;
+    let current: Node<T> | null = this.root;
     while (current !== null) {
       stream.push(current.getValue());
       current = current.left;
     }
     return stream;
-  }
-
-  edit(target: any, updateTo: any) {
-    if (this.remove(target)) {
-      this.add(updateTo);
-      return true;
-    }
-    return false;
-  }
-
-  isEmpty() {
-    return this.length === 0;
   }
 }

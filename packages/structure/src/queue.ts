@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Node from './node';
 
-export default class Queue {
-  top: Node | null;
+export default class Queue<T = any> {
+  top: Node<T> | null;
 
-  size: any;
+  size: number;
 
-  bottom: Node | null;
+  bottom: Node<T> | null;
 
   constructor() {
     this.top = null;
@@ -13,7 +14,7 @@ export default class Queue {
     this.size = 0;
   }
 
-  push(element: any) {
+  push(element: T): void {
     this.top = new Node(element, null, this.top);
     if (this.size === 0) {
       this.bottom = this.top;
@@ -24,7 +25,7 @@ export default class Queue {
     this.size += 1;
   }
 
-  pop() {
+  pop(): T | null {
     // for type check
     if (this.size === 0 || this.bottom === null) {
       return null;
@@ -38,14 +39,14 @@ export default class Queue {
     return element;
   }
 
-  peek() {
+  peek(): T | null {
     if (this.size === 0 || this.bottom === null) {
       return null;
     }
     return this.bottom.getValue();
   }
 
-  isEmpty() {
+  isEmpty(): boolean {
     return this.size === 0;
   }
 }

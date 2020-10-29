@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import isArray from './is-array';
 
 export default function (value: string): boolean {

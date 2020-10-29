@@ -1,31 +1,48 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Optional from './optional';
 
-export default class Node {
-  element: any;
+export default class Node<T = any> {
+  element: T;
 
-  left: Node | null;
+  left: Node<T> | null;
 
-  right: Node | null;
+  right: Node<T> | null;
 
-  constructor(element: any, left: Node | null = null, right: Node | null = null) {
+  constructor(element: T, left: Node<T> | null = null, right: Node<T> | null = null) {
     this.element = element;
     this.left = left;
     this.right = right;
   }
 
-  getValue() {
+  getValue(): T {
     return this.element;
   }
 
-  toString() {
+  toString(): string {
+    const element: any = this.getValue();
+
+    let value = '';
+
+    if (element === undefined) {
+      value = 'undefined';
+    }
+
+    if (element === null) {
+      value = 'null';
+    }
+
+    if (element.toString) {
+      value = element.toString();
+    }
+
     return `${Optional.ofNullable(this.left)
       .map((node) => node.toString())
-      .orElse(' ')} ${this.getValue().toString()} ${Optional.ofNullable(this.right)
+      .orElse(' ')} ${value} ${Optional.ofNullable(this.right)
       .map((node) => node.toString())
       .orElse(' ')}`;
   }
 
-  equals(element: any) {
+  equals(element: any): boolean {
     return this.element === element;
   }
 }
