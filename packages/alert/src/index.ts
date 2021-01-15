@@ -1,6 +1,6 @@
 import randomId from '@geeeger/random-id';
 
-export default function alert(message: string): Promise<never> {
+export default function alert(message: string): Promise<void> {
   return new Promise((resolve) => {
     const div = document.createElement('div');
     div.className = 'geeeger-alert';
