@@ -3,6 +3,13 @@
 import pv from '../src';
 
 describe('@geeeger/page-visibility module', () => {
+  beforeEach(() => {
+    pv.init();
+  });
+  afterEach(() => {
+    pv.destory();
+  });
+
   test('should get value', () => {
     expect(pv.getState()).toBeTruthy();
     expect(typeof pv.isHidden() === 'boolean').toBeTruthy();

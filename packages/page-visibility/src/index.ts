@@ -3,12 +3,6 @@ import isHidden from './is-hidden';
 
 const doc: Document = document;
 
-let MyPromise: PromiseConstructorLike = Promise;
-
-function setPromise(SomePromiseConstructorLike: PromiseConstructorLike): void {
-  MyPromise = SomePromiseConstructorLike;
-}
-
 type OnChangeListener = (isHidden: boolean) => void;
 
 let listeners: OnChangeListener[] = [];
@@ -36,7 +30,7 @@ const visibilityChange = 'visibilitychange';
 
 function once(): PromiseLike<{ ishidden: boolean; timeout: number }> {
   const nowTime = new Date().getTime();
-  return new MyPromise((resolve) => {
+  return new Promise((resolve) => {
     const resolver = (): void => {
       doc.removeEventListener(visibilityChange, resolver);
       const changeTime = new Date().getTime();
@@ -49,21 +43,27 @@ function once(): PromiseLike<{ ishidden: boolean; timeout: number }> {
   });
 }
 
-document.addEventListener(
-  visibilityChange,
-  () => {
-    const ishidden = isHidden();
-    listeners.forEach((listener) => listener(ishidden));
-  },
-  false
-);
+function listener(): void {
+  const ishidden = isHidden();
+  listeners.forEach((listener) => listener(ishidden));
+}
+
+function init(): void {
+  doc.addEventListener(visibilityChange, listener, false);
+}
+
+function destory(): void {
+  doc.removeEventListener(visibilityChange, listener);
+  removeListeners();
+}
 
 export default {
   addListener,
+  destory,
   getState,
+  init,
   isHidden,
   once,
   removeListener,
   removeListeners,
-  setPromise,
 };
