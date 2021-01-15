@@ -25,9 +25,7 @@
   },
   "private": false,
   "name": "@geeeger/is-http-url",
-  "devDependencies": {
-    "typescript": "^4.0.2"
-  },
+  "devDependencies": {},
   "scripts": {
     "build": "tsc --pretty",
     "prepare": "npm run build"

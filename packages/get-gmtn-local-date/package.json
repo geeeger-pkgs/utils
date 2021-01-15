@@ -29,5 +29,6 @@
     "build": "tsc --pretty",
     "prepare": "npm run build"
   },
-  "version": "2.0.6"
+  "version": "2.0.6",
+  "dependencies": {}
 }
