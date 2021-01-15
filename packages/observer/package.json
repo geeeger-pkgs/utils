@@ -25,13 +25,12 @@
   },
   "private": false,
   "name": "@geeeger/observer",
-  "devDependencies": {},
   "scripts": {
     "build": "tsc --pretty",
     "prepare": "npm run build"
   },
-  "version": "2.0.5",
+  "version": "2.0.7",
   "dependencies": {
-    "@geeeger/is": "^2.0.5"
+    "@geeeger/is": "^2.0.7"
   }
 }
