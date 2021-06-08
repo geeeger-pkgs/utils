@@ -1,5 +1,21 @@
 {
+  "schedule": ["every weekend"],
   "extends": [
     "config:base"
+  ],
+  "semanticCommits": "enabled",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    }
   ]
 }
