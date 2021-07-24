@@ -14,7 +14,7 @@
     "jest-junit": "12.2.0",
     "lerna": "4.0.0",
     "prettier": "2.3.2",
-    "ts-jest": "27.0.3",
+    "ts-jest": "27.0.4",
     "typescript": "4.3.5"
   },
   "scripts": {
