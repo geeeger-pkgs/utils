@@ -224,7 +224,7 @@ export class Bridge {
                 default:
                   break;
               }
-            } catch (e) {
+            } catch (e: any) {
               reject(new BridgeError(`parse bridge async data error: ${e.message}`));
             }
             resolve(result);
@@ -266,7 +266,7 @@ export class Bridge {
               default:
                 break;
             }
-          } catch (e) {
+          } catch (e: any) {
             reject(new BridgeError(`parse bridge sync data error: ${e.message}`));
           }
           resolve(result);
