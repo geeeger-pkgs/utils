@@ -28,6 +28,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: install
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm ci
 
