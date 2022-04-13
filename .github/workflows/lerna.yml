@@ -33,7 +33,11 @@ jobs:
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: test
+      - name: install lerna
         run: npm install -g lerna
+
+      - name: link packages
         run: lerna bootstrap --hoist
+
+      - name: run test
         run: npm run test-ci
