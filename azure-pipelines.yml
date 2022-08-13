@@ -23,7 +23,7 @@ steps:
     npm run test-ci
   displayName: 'npm install and test'
 
-- task: PublishTestResults@2
+- task: PublishTestResults@2.203.0
   condition: succeededOrFailed()
   inputs:
     testRunner: JUnit
