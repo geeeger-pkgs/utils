@@ -30,7 +30,7 @@ steps:
     testResultsFiles: 'junit.xml'
     failTaskOnFailedTests: true
 
-- task: PublishCodeCoverageResults@1
+- task: PublishCodeCoverageResults@1.200.0
   inputs: 
     codeCoverageTool: Cobertura
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
