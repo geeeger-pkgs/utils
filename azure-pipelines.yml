@@ -12,7 +12,7 @@ strategy:
       node_version: 13.x
 
 steps:
-- task: NodeTool@0.210.0 
+- task: NodeTool@0.210.1 
   displayName: 'install $(node_version)'
   inputs:
     versionSpec: $(node_version)
